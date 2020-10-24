@@ -24,20 +24,30 @@ class ViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        spacer.tintColor = .green
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        refresh.tintColor = .green
         
         let back = UIBarButtonItem(title: "Back", style: .plain, target: webView, action: #selector(webView.goBack))
+        back.tintColor = .green
         let forward = UIBarButtonItem(title: "Forward", style: .plain, target: webView, action: #selector(webView.goForward))
+        forward.tintColor = .green
         
         progessView = UIProgressView(progressViewStyle: .default)
         progessView.sizeToFit()
+        progessView.tintColor = .green
         let progressButton = UIBarButtonItem(customView: progessView)
-        
+        progressButton.tintColor = .green
         
         toolbarItems = [back, forward, progressButton, spacer, refresh]
+        navigationController?.toolbar.backgroundColor = .black
+        navigationController?.toolbar.tintColor = .gray
         navigationController?.isToolbarHidden = false
         
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
@@ -94,5 +104,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
         decisionHandler(.cancel)
     }
 
+    
 }
 
