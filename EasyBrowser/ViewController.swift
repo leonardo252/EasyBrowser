@@ -13,7 +13,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView!
     var progessView: UIProgressView!
-    var websites = ["apple.com", "hackingwithswift.com", "google.com"]
+    var websites = ["apple.com", "hackingwithswift.com", "google.com", "thingiverse.com"]
     
     override func loadView() {
         webView = WKWebView()
@@ -30,20 +30,20 @@ class ViewController: UIViewController, WKNavigationDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        spacer.tintColor = .green
+        spacer.tintColor = .blue
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
-        refresh.tintColor = .green
+        refresh.tintColor = .blue
         
         let back = UIBarButtonItem(title: "Back", style: .plain, target: webView, action: #selector(webView.goBack))
-        back.tintColor = .green
+        back.tintColor = .blue
         let forward = UIBarButtonItem(title: "Forward", style: .plain, target: webView, action: #selector(webView.goForward))
-        forward.tintColor = .green
+        forward.tintColor = .blue
         
         progessView = UIProgressView(progressViewStyle: .default)
         progessView.sizeToFit()
-        progessView.tintColor = .green
+        progessView.tintColor = .blue
         let progressButton = UIBarButtonItem(customView: progessView)
-        progressButton.tintColor = .green
+        progressButton.tintColor = .blue
         
         toolbarItems = [back, forward, progressButton, spacer, refresh]
         navigationController?.toolbar.backgroundColor = .black
